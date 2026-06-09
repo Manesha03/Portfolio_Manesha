@@ -1,51 +1,37 @@
 import { motion } from "framer-motion";
-import { BarChart3, BookOpen, Code2, Database, GraduationCap, ServerCog } from "lucide-react";
+import { BookOpen, GraduationCap, Languages, Laptop } from "lucide-react";
 import { Section } from "./Section";
 
 const ROLES = [
   {
-    period: "2023 - Present",
-    role: "BSc undergraduate specializing in Data Science",
+    period: "2023 - 2027",
+    role: "BSc (Hons) in Information Technology",
     society: "Sri Lanka Institute of Information Technology (SLIIT)",
+    desc: "Specializing in Data Science with a focus on analytics, statistical modeling, databases, and full-stack systems.",
     icon: GraduationCap,
     iconColor: "text-blue-400",
   },
   {
-    period: "Feb 2026 - Apr 2026",
-    role: "Smart Campus Operations Hub",
-    society: "Spring Boot, React, MySQL, OAuth2, JWT",
-    desc: "Full-stack campus operations platform with bookings, QR verification, maintenance tickets, notifications, and admin workflows.",
-    icon: ServerCog,
+    period: "Feb 2023 - Sep 2023",
+    role: "Diploma in Information Technology",
+    society: "ICBT",
+    desc: "Built a stronger foundation in IT concepts, computer systems, and practical digital skills.",
+    icon: Laptop,
     iconColor: "text-cyan-400",
   },
   {
-    period: "Mar 2026 - Apr 2026",
-    role: "Student Persistence Analysis",
-    society: "R, statistical modeling, EDA, classification",
-    desc: "End-to-end analysis of academic and support factors using 6,607 student records.",
-    icon: BarChart3,
-    iconColor: "text-indigo-400",
-  },
-  {
-    period: "Mar 2026 - Apr 2026",
-    role: "UrbanCart Data Warehouse",
-    society: "SQL Server, T-SQL, SSAS, Power BI",
-    desc: "Source, staging, and warehouse layers with snowflake schema, ETL, SCD history, OLAP, and BI reports.",
-    icon: Database,
+    period: "Feb 2023 - Sep 2023",
+    role: "Diploma in English",
+    society: "ICBT",
+    desc: "Improved professional communication, writing, and presentation skills.",
+    icon: Languages,
     iconColor: "text-sky-400",
   },
   {
-    period: "Jul 2025 - Nov 2025",
-    role: "AgroSphere MERN Platform",
-    society: "React, Node.js, Express.js, MongoDB",
-    desc: "Agriculture management system for crops, land records, marketplace, orders, payments, Q&A, and admin dashboards.",
-    icon: Code2,
-    iconColor: "text-emerald-400",
-  },
-  {
-    period: "Always Learning",
-    role: "Data science and software craft",
-    society: "Statistics, databases, dashboards, APIs",
+    period: "2020 - 2022",
+    role: "G.C.E. Advanced Level",
+    society: "Maliyadeva Balika Vidyalaya",
+    desc: "Completed the Physical Science stream before beginning my higher education journey in IT and data science.",
     icon: BookOpen,
     iconColor: "text-violet-400",
   },
@@ -56,8 +42,8 @@ export function Journey() {
     <Section
       id="journey"
       eyebrow="Journey"
-      title="A timeline through data and systems"
-      subtitle="The projects and learning steps shaping my portfolio."
+      title="My academic journey"
+      subtitle="The education path that shaped my move from physical science into information technology and data science."
     >
       <div className="relative mx-auto max-w-4xl">
         <div
