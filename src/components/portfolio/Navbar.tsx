@@ -69,7 +69,7 @@ export function Navbar({
               alt="MK Creative logo"
               className="size-9 rounded-full object-cover md:size-10"
             />
-            <span className="text-gradient text-lg md:text-xl">Manesha</span>
+            <span className="text-gradient text-sm md:text-base">Manesha Dahanayake</span>
           </button>
 
           <nav className="hidden items-center md:flex md:gap-2">
