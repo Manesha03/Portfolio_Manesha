@@ -6,10 +6,12 @@ import {
   Brain,
   Code,
   Database,
+  FileCode2,
   GitBranch,
   GraduationCap,
   LineChart,
   Medal,
+  ShieldCheck,
   Search,
   Sparkles,
   X,
@@ -27,33 +29,6 @@ const ITEMS = [
     skills: ["Data Science", "Statistics", "Analytics"],
   },
   {
-    icon: BarChart3,
-    title: "Student Persistence Statistical Study",
-    year: "2026",
-    issuer: "SLIIT Project",
-    type: "project",
-    credentialId: "6,607-record analysis",
-    skills: ["R", "Hypothesis Testing", "Regression", "Classification"],
-  },
-  {
-    icon: Database,
-    title: "SQL Data Warehouse and BI Solution",
-    year: "2026",
-    issuer: "SLIIT Project",
-    type: "project",
-    credentialId: "SCD Type 1/2, SSAS, Power BI",
-    skills: ["Data Warehousing", "SQL Server", "ETL", "Power BI"],
-  },
-  {
-    icon: Code,
-    title: "Smart Campus Operations Hub",
-    year: "2026",
-    issuer: "SLIIT Project",
-    type: "project",
-    credentialId: "Spring Boot and React platform",
-    skills: ["Spring Boot", "React", "JWT", "MySQL"],
-  },
-  {
     icon: GitBranch,
     title: "GitHub Project Portfolio",
     year: "2025 - 2026",
@@ -61,6 +36,69 @@ const ITEMS = [
     type: "milestone",
     credentialId: "github.com/Manesha03",
     skills: ["Version Control", "Collaboration", "Documentation"],
+  },
+  {
+    icon: Database,
+    title: "Relational to Document Model",
+    year: "Issued May 2026",
+    issuer: "MongoDB",
+    type: "certification",
+    credentialId: "MongoDB Schema Design Patterns and Anti-patterns Skill Badge",
+    skills: ["Data Modeling", "NoSQL", "MongoDB", "Schema Validation"],
+  },
+  {
+    icon: Database,
+    title: "Schema Design Patterns and Anti-patterns",
+    year: "Issued May 2026",
+    issuer: "MongoDB",
+    type: "certification",
+    credentialId: "MongoDB Schema Design Patterns and Anti-patterns Skill Badge",
+    skills: ["Schema Design Pattern", "Anti Pattern Mitigation", "MongoDB"],
+  },
+  {
+    icon: Code,
+    title: "MongoDB Node.js Developer Path",
+    year: "Issued May 2026",
+    issuer: "MongoDB",
+    type: "certification",
+    credentialId: "MDBh3bt0m1m9u",
+    skills: ["Node.js", "MongoDB", "Polyglot", "Aggregation Pipelines"],
+  },
+  {
+    icon: FileCode2,
+    title: "MongoDB PHP Developer Path",
+    year: "Issued May 2026",
+    issuer: "MongoDB",
+    type: "certification",
+    credentialId: "MDBayg1qrmrjl",
+    skills: ["PHP", "MongoDB", "Cross-platform Development", "Aggregation Pipelines"],
+  },
+  {
+    icon: Brain,
+    title: "MongoDB Python Developer Path",
+    year: "Issued May 2026",
+    issuer: "MongoDB",
+    type: "certification",
+    credentialId: "MDB8qbtj1gf3g",
+    skills: ["Python", "MongoDB", "Polyglot", "Indexing"],
+  },
+  {
+    icon: Code,
+    title: "MongoDB Java Developer Path",
+    year: "Issued May 2026",
+    issuer: "MongoDB",
+    type: "certification",
+    credentialId: "MDBl0vnis4knk",
+    skills: ["Java", "MongoDB", "OOP", "Backend Development"],
+  },
+  {
+    icon: Database,
+    title: "MongoDB Data Modeling Path",
+    year: "Issued Apr 2026",
+    issuer: "MongoDB",
+    type: "certification",
+    credentialId: "MDB9v9w99kjyh",
+    skills: ["NoSQL", "Data Modeling", "MongoDB", "Cloud Databases"],
   },
 ];
 
@@ -80,13 +118,30 @@ const SKILL_ICONS: Record<string, React.ElementType> = {
   React: Code,
   JWT: Code,
   MySQL: Database,
+  MongoDB: Database,
+  NoSQL: Database,
+  "Data Modeling": Database,
+  "Schema Validation": ShieldCheck,
+  "Schema Design Pattern": Database,
+  "Anti Pattern Mitigation": ShieldCheck,
+  "Node.js": Code,
+  PHP: FileCode2,
+  Python: Brain,
+  Java: Code,
+  Polyglot: Code,
+  "Cross-platform Development": FileCode2,
+  "Aggregation Pipelines": BarChart3,
+  Indexing: Database,
+  OOP: Code,
+  "Backend Development": Code,
+  "Cloud Databases": Database,
   "Version Control": GitBranch,
   Collaboration: Medal,
   Documentation: Award,
 };
 
 export function Highlights() {
-  const [filterType, setFilterType] = useState<"all" | "project" | "milestone">("all");
+  const [filterType, setFilterType] = useState<"all" | "milestone" | "certification">("all");
   const [searchSkill, setSearchSkill] = useState("");
 
   const filteredItems = ITEMS.filter((item) => {
@@ -106,13 +161,13 @@ export function Highlights() {
     <Section
       id="achievements"
       eyebrow="Highlights"
-      title="Milestones from my learning journey"
-      subtitle="Project wins, academic focus areas, and technical proof points from my data science path."
+      title="Certificates and learning milestones"
+      subtitle="Academic focus areas, verified credentials, and technical proof points from my data science path."
     >
       <div className="mb-6 flex flex-wrap justify-center gap-2">
         {[
           { id: "all", label: "All Highlights", icon: Sparkles },
-          { id: "project", label: "Projects", icon: Award },
+          { id: "certification", label: "Certificates", icon: ShieldCheck },
           { id: "milestone", label: "Milestones", icon: Medal },
         ].map((item) => {
           const Icon = item.icon;
@@ -137,7 +192,7 @@ export function Highlights() {
           <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="text"
-            placeholder="Search by skill, such as R, SQL Server, React..."
+            placeholder="Search by skill, such as MongoDB, Python, Data Modeling..."
             value={searchSkill}
             onChange={(e) => setSearchSkill(e.target.value)}
             className="w-full rounded-full border border-primary/20 bg-background/40 py-2.5 pl-9 pr-8 text-sm outline-none transition-colors focus:border-primary"
@@ -172,8 +227,12 @@ export function Highlights() {
             className="group relative overflow-hidden rounded-2xl glass p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-xl"
           >
             <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-blue-400/30 bg-blue-500/20 px-2.5 py-1 text-[10px] font-medium text-blue-200 backdrop-blur-sm">
-              {it.type === "project" ? <Award className="size-3" /> : <Medal className="size-3" />}
-              {it.type === "project" ? "Project" : "Milestone"}
+              {it.type === "certification" ? (
+                <ShieldCheck className="size-3" />
+              ) : (
+                <Medal className="size-3" />
+              )}
+              {it.type === "certification" ? "Certificate" : "Milestone"}
             </div>
 
             <div className="relative mb-4 inline-flex">
