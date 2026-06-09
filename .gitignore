@@ -1,0 +1,11 @@
+node_modules/
+.vercel/
+dist/
+.nitro/
+
+vite-dev.log
+vite-dev.err.log
+
+.env
+.env.*
+!.env.example
