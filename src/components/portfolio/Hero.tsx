@@ -32,10 +32,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="mt-5 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
+            className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl"
           >
             Hi, I&apos;m <br />
-            <span className="text-gradient">Manesha Dahanayake</span>
+            <span className="text-gradient text-[0.86em]">Manesha Dahanayake</span>
             <br />
             <span className="block max-w-3xl pt-2 text-[32px] leading-tight text-foreground/72 sm:text-[40px]">
               building intelligent, data-driven digital systems
