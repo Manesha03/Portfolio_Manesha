@@ -17,6 +17,14 @@ import {
   Smartphone,
   Sprout,
 } from "lucide-react";
+import agrospherePreview from "../../assets/agrosphere-preview.jpg";
+import flexPreview from "../../assets/flex-preview.jpg";
+import halomedPreview from "../../assets/halomed-preview.jpg";
+import moofiPreview from "../../assets/moofi-preview.jpg";
+import smartCampusPreview from "../../assets/smart-campus-preview.png";
+import studentStatisticsPreview from "../../assets/student-statistics-preview.png";
+import trendifyPreview from "../../assets/trendify-preview.jpg";
+import urbanCartEtlPreview from "../../assets/urbancart-etl-preview.png";
 import { Section } from "./Section";
 
 type Project = {
@@ -30,6 +38,7 @@ type Project = {
   github: string;
   icon: React.ElementType;
   stats: string[];
+  image?: string;
 };
 
 const PROJECTS: Project[] = [
@@ -62,6 +71,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Manesha03/it3030-paf-2026-smart-campus-group118",
     icon: Monitor,
     stats: ["4 user roles", "QR verification", "CI workflow"],
+    image: smartCampusPreview,
   },
   {
     title: "Student Persistence Analysis",
@@ -90,6 +100,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Manesha03/student-performance-factors-stat-modeling",
     icon: GraduationCap,
     stats: ["6,607 records", "Statistical tests", "Predictive models"],
+    image: studentStatisticsPreview,
   },
   {
     title: "UrbanCart SQL Data Warehouse",
@@ -119,6 +130,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Manesha03/SQL-Data-Warehouse-and-Analytics-Solution",
     icon: Database,
     stats: ["SCD Type 1/2", "OLAP cube", "BI reports"],
+    image: urbanCartEtlPreview,
   },
   {
     title: "AgroSphere",
@@ -146,6 +158,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Manesha03/Farmer-Network-and-Smart-Crop-Management-System",
     icon: Sprout,
     stats: ["MERN stack", "Marketplace", "Admin dashboard"],
+    image: agrospherePreview,
   },
   {
     title: "MOOFI",
@@ -171,6 +184,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Manesha03/Habit-Tracker",
     icon: HeartPulse,
     stats: ["Android app", "Mood journal", "Wellness charts"],
+    image: moofiPreview,
   },
   {
     title: "FLEX",
@@ -196,6 +210,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Manesha03/Fitness-Tracker",
     icon: Smartphone,
     stats: ["Fitness UI", "Progress insights", "Meditation"],
+    image: flexPreview,
   },
   {
     title: "HaloMed",
@@ -223,6 +238,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Manesha03/Online-E-Channelling",
     icon: HeartPulse,
     stats: ["Doctor search", "Appointments", "Admin panel"],
+    image: halomedPreview,
   },
   {
     title: "Trendify",
@@ -240,6 +256,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/Manesha03/Online-Fashion-Store",
     icon: ShoppingBag,
     stats: ["E-commerce", "Cart system", "Admin dashboard"],
+    image: trendifyPreview,
   },
 ];
 
@@ -256,22 +273,24 @@ function ProjectVisual({ project }: { project: Project }) {
 
   return (
     <div className={`relative h-52 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.22),transparent_26%),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,28px_28px,28px_28px]" />
+      {project.image ? (
+        <>
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/35 to-black/80" />
+          <div className="absolute inset-0 bg-primary/10 mix-blend-color" />
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.22),transparent_26%),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,28px_28px,28px_28px]" />
+      )}
       <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1 text-xs text-white backdrop-blur">
         <Network className="size-3" />
         {project.category}
       </div>
       <div className="absolute bottom-5 left-5 right-5">
-        <div className="mb-4 grid grid-cols-3 gap-2">
-          {project.stats.map((stat) => (
-            <div
-              key={stat}
-              className="rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-[10px] font-medium text-white/85 backdrop-blur"
-            >
-              {stat}
-            </div>
-          ))}
-        </div>
         <div className="flex items-end justify-between">
           <div>
             <p className="text-xs text-white/70">{project.period}</p>
@@ -352,6 +371,17 @@ export function Projects() {
               <ProjectVisual project={project} />
 
               <div className="p-5 md:p-6">
+                <div className="-mt-1 mb-4 grid grid-cols-3 gap-2">
+                  {project.stats.map((stat) => (
+                    <div
+                      key={stat}
+                      className="flex min-h-12 items-center rounded-xl border border-primary/15 bg-primary/8 px-3 py-2 text-[10px] font-semibold leading-snug text-secondary"
+                    >
+                      {stat}
+                    </div>
+                  ))}
+                </div>
+
                 <p className="text-xs font-medium text-secondary">{project.period}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.desc}</p>
 
