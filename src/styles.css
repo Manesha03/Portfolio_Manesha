@@ -37,12 +37,12 @@
 
 :root {
   --radius: 0.875rem;
-  --background: oklch(0.145 0.055 255);
+  --background: oklch(0.02 0 0);
   --foreground: oklch(0.985 0.004 235);
-  --surface: oklch(0.21 0.06 250);
-  --card: oklch(0.21 0.06 250);
+  --surface: oklch(0.11 0.025 250);
+  --card: oklch(0.105 0.025 250);
   --card-foreground: oklch(0.98 0.005 240);
-  --popover: oklch(0.21 0.06 250);
+  --popover: oklch(0.105 0.025 250);
   --popover-foreground: oklch(0.98 0.005 240);
   --primary: oklch(0.66 0.17 250);
   --primary-foreground: oklch(0.13 0.05 255);
@@ -155,12 +155,12 @@
     background-image:
       radial-gradient(
         circle at 20% 30%,
-        color-mix(in oklab, var(--color-primary) 18%, transparent),
+        color-mix(in oklab, var(--color-primary) 8%, transparent),
         transparent 50%
       ),
       radial-gradient(
         circle at 80% 70%,
-        color-mix(in oklab, var(--color-secondary) 14%, transparent),
+        color-mix(in oklab, var(--color-secondary) 6%, transparent),
         transparent 55%
       );
   }
