@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 
-import faviconUrl from "../assets/manesha-logo.jpg";
+import faviconUrl from "../assets/logo1.webp";
 import appCss from "../styles.css?url";
 
 const siteUrl = (import.meta.env.VITE_SITE_URL ?? "https://your-domain.com").replace(/\/$/, "");
