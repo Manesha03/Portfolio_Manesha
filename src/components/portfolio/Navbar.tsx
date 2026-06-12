@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, BarChart3, Briefcase, Code2, Mail, Menu, Moon, Sun, User, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import logo from "@/assets/manesha-logo.jpg";
+import logo from "@/assets/logo1.webp";
 
 const links = [
   { id: "about", label: "About", icon: User },

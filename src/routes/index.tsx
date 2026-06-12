@@ -16,7 +16,7 @@ import { StarsBackground } from "@/components/portfolio/StarsBackground";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Manesha Dahanayake | Data Science Portfolio" },
+      { title: "Manesha Dahanayake" },
       {
         name: "description",
         content:
