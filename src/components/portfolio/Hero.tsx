@@ -69,7 +69,7 @@ export function Hero() {
             </button>
 
             <a
-              href="/cv/Manesha_Dahanayake_CV.pdf"
+              href="/cv/Manesha_Dahanayake.pdf"
               download="Manesha_Dahanayake_CV.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/5 px-6 py-3 text-sm font-medium text-foreground transition-all hover:bg-primary/15"
             >
