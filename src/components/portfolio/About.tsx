@@ -1,41 +1,7 @@
 import { motion } from "framer-motion";
-import {
-  BarChart3,
-  Brain,
-  Compass,
-  Database,
-  ExternalLink,
-  GraduationCap,
-  Target,
-} from "lucide-react";
+import { Brain, Sparkles, Target } from "lucide-react";
 import { Section } from "./Section";
-
-const timeline = [
-  {
-    year: "2023 - Present",
-    title: "BSc (Hons) Undergraduate",
-    place: "Sri Lanka Institute of Information Technology (SLIIT)",
-    url: "https://www.sliit.lk/",
-    icon: GraduationCap,
-    desc: "Specializing in Data Science with focus on analytics, statistical modeling, databases, and modern application development.",
-  },
-  {
-    year: "2026",
-    title: "Applied Data Analytics Projects",
-    place: "Academic and portfolio work",
-    url: "https://github.com/Manesha03",
-    icon: BarChart3,
-    desc: "Built projects in R, SQL Server, Power BI, data warehousing, and full-stack operational systems.",
-  },
-  {
-    year: "2025 - 2026",
-    title: "Full-Stack Product Development",
-    place: "SLIIT project teams",
-    url: "https://github.com/Manesha03",
-    icon: Database,
-    desc: "Developed MERN and Spring Boot systems with authentication, dashboards, APIs, data flows, and role-based workflows.",
-  },
-];
+import profile from "@/assets/manesha-profile.jpeg";
 
 const cards = [
   {
@@ -90,54 +56,34 @@ export function About() {
           </div>
         </motion.div>
 
-        <div className="relative">
-          <div
-            className="absolute bottom-2 left-4 top-2 w-px bg-gradient-to-b from-secondary/70 via-primary/25 to-transparent"
-            aria-hidden
-          />
-          <div className="flex items-center gap-2 pb-4 text-sm text-muted-foreground">
-            <Compass className="size-4 text-secondary" /> Education and focus
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="relative mx-auto w-full max-w-md"
+        >
+          <motion.div
+            animate={{ y: [-8, 8, -8] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative aspect-square overflow-hidden rounded-full glass-strong p-2"
+          >
+            <img
+              src={profile}
+              alt="Manesha Dahanayake"
+              width={768}
+              height={768}
+              className="size-full rounded-full object-cover"
+              style={{ imageOrientation: "from-image" }}
+            />
+            <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-secondary/35" />
+          </motion.div>
+          <div className="absolute -right-3 top-12 glass rounded-2xl px-4 py-3 text-xs text-muted-foreground shadow-xl">
+            <Sparkles className="mb-1 size-4 text-secondary" />
+            Data, models, dashboards
           </div>
-          <ul className="space-y-5">
-            {timeline.map((t, i) => (
-              <motion.li
-                key={t.title}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative pl-12"
-              >
-                <span className="absolute left-2 top-1.5 size-4 rounded-full border-2 border-background bg-primary glow-primary" />
-                <div className="glass rounded-2xl p-5">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10">
-                      <t.icon className="size-5 text-secondary" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <h4 className="font-semibold">{t.title}</h4>
-                        <span className="text-xs text-secondary">{t.year}</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        <a
-                          href={t.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group inline-flex items-center gap-1 transition-colors hover:text-secondary"
-                        >
-                          {t.place}
-                          <ExternalLink className="size-3 opacity-0 transition-opacity group-hover:opacity-100" />
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-sm text-muted-foreground/90">{t.desc}</p>
-                </div>
-              </motion.li>
-            ))}
-          </ul>
-        </div>
+          <div className="pointer-events-none absolute -inset-6 -z-10 rounded-full bg-primary/20 blur-3xl" />
+        </motion.div>
       </div>
     </Section>
   );
